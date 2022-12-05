@@ -2,26 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
 
-## Development server
+## About Project 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- This project uses hash based navigation. 
+- This project is used for debugging purposes against https://github.com/damienbod/angular-auth-oidc-client/issues/1623.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Steps to reproduce
 
-## Build
+- Run development server through `ng serve` or `npm start` on `http://localhost:4200/`. 
+- Make sure to keep console log/network open to keep an eye on debug logs.
+- The home page should just have a text and a simple button with label `Login`. Click on `Login` button to start the code flow.
+- After you've logged in, check the console logs and it should still have authenticated result to false.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Code Structure 
+- `app.module.ts` is where the configs are loaded.
+- `app.component.ts` is where the initial app loads.
+- `after-login.component.ts` is where the flow should take us based on the code in `app.component.ts`. 
+- Disregard `factory-loader.ts` for now that is for another issue. 
